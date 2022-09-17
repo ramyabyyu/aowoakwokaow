@@ -51,6 +51,7 @@ const AuthModal = ({ show, handleClose }) => {
 
       if (isRegister) {
         response = await API.post("/register", userData);
+        console.log(response);
       } else {
         response = await API.post("/login", userData);
       }
@@ -61,13 +62,11 @@ const AuthModal = ({ show, handleClose }) => {
           payload: response.data.data,
         });
 
-        console.log(response.status);
-
-        handleClose();
-        navigate("profile");
+        // handleClose();
+        // navigate("profile");
       } else {
         dispatch({
-          type:"AUTH_ERROR",
+          type: "AUTH_ERROR",
         });
         setErrResMsg(response.data.message);
       }
@@ -163,8 +162,8 @@ const AuthModal = ({ show, handleClose }) => {
               <option disabled selected>
                 Gender
               </option>
-              <option value="Male">Male</option>
-              <option value="Female">Female</option>
+              <option value="Male">Non Biner</option>
+              <option value="Female">Gay</option>
             </Form.Select>
           )}
 
