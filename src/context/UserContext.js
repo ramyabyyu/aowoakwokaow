@@ -1,6 +1,5 @@
 import { createContext, useReducer } from "react";
 
-
 export const UserContext = createContext();
 
 const initialState = {
@@ -17,6 +16,7 @@ const reducer = (state, action) => {
         isLogin: true,
         user: payload,
       };
+    case "AUTH_ERROR":
     case "LOGOUT":
       return {
         isLogin: false,

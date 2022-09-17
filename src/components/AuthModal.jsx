@@ -51,30 +51,27 @@ const AuthModal = ({ show, handleClose }) => {
 
       if (isRegister) {
         response = await API.post("/register", userData);
-        console.log(response);
       } else {
         response = await API.post("/login", userData);
       }
 
-      if (response.status === 200) {
-        dispatch({
-          type: "AUTH_SUCCESS",
-          payload: response.data.data,
-        });
+      console.log(response);
 
-        // handleClose();
-        // navigate("profile");
-      } else {
-        dispatch({
-          type: "AUTH_ERROR",
-        });
-        setErrResMsg(response.data.message);
-      }
+      //   if (response.status === 200) {
+      //     dispatch({
+      //       type: "AUTH_SUCCESS",
+      //       payload: response.data.data,
+      //     });
+
+      //     handleClose();
+      //   } else {
+      //     dispatch({
+      //       type: "AUTH_ERROR",
+      //     });
+      //     setErrResMsg(response.data.message);
+      //   }
     } catch (error) {
-      dispatch({
-        type: "AUTH_ERROR",
-      });
-      setErrResMsg("Some error occured!");
+      console.log(error);
     }
   });
 
